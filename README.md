@@ -131,6 +131,8 @@ the finished message, the `wa.me` URL and special characters in it.
 
 ## Deploying
 
+**Live: https://menuflow-six-gamma.vercel.app**
+
 The app is static apart from its client interactivity and needs no
 environment variables.
 
@@ -140,6 +142,12 @@ npx vercel            # preview
 npx vercel --prod     # production
 ```
 
+Checked against the deployed instance on 2026-10-14, not only against a
+local build: `/`, a product page, the cart and a missing route, each at
+1440 px and 390 px. All returned the expected status with no horizontal
+overflow, no console errors and **zero axe-core violations** (WCAG 2.1
+A + AA). The 404 route correctly returns 404.
+
 ## Limitations
 
 - The restaurant, **Mesa Nove**, is fictional and the WhatsApp number is a
@@ -148,8 +156,9 @@ npx vercel --prod     # production
   credits are in `public/menu/CREDITS.json`.
 - There is no order history: once the message is sent, the application knows
   nothing more about it.
-- Verified in Chromium at 360, 390, 430, 768 and 1440 px. Not tested on a
-  physical device, and not tested in Safari or Firefox.
+- Verified in Chromium at 360, 390, 430, 768 and 1440 px, locally and
+  against the deployment. Not tested on a physical device, and not tested in
+  Safari or Firefox.
 
 ## Roadmap, deliberately not built
 
