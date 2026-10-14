@@ -93,7 +93,7 @@ export default function ProductCustomizer({
                 >
                   {choice.label}
                   {choice.priceDelta > 0 && (
-                    <span className="ml-2 opacity-80">
+                    <span className="ml-2">
                       +{formatMoney(choice.priceDelta, restaurant.locale, restaurant.currency)}
                     </span>
                   )}

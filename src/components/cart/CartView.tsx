@@ -45,14 +45,16 @@ export default function CartView({ restaurant }: { restaurant: Restaurant }) {
 
         <ul className="border-t border-rule">
           {lines.map(({ item, product, choiceLabels, unit, total }) => (
-            <li key={item.lineId} className="flex gap-4 border-b border-rule py-5">
-              <div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-surface sm:size-24">
+            <li key={item.lineId} className="flex min-w-0 gap-3 border-b border-rule py-5 sm:gap-4">
+              <div className="relative size-16 shrink-0 overflow-hidden rounded-lg bg-surface sm:size-24">
                 <DishImage src={product.image} alt={product.imageAlt} sizes="6rem" />
               </div>
 
               <div className="min-w-0 flex-1">
-                <div className="flex items-baseline justify-between gap-3">
-                  <h2 className="display-s truncate">{product.name}</h2>
+                {/* Stacked while narrow: a long dish name and a price on one
+                    row is what pushed this line past the viewport at 360px. */}
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
+                  <h2 className="display-s min-w-0 break-words">{product.name}</h2>
                   <span className="shrink-0 font-medium">
                     {formatMoney(total, restaurant.locale, restaurant.currency)}
                   </span>
@@ -66,7 +68,7 @@ export default function CartView({ restaurant }: { restaurant: Restaurant }) {
                   {formatMoney(unit, restaurant.locale, restaurant.currency)} each
                 </p>
 
-                <div className="mt-3 flex items-center gap-2">
+                <div className="mt-3 flex flex-wrap items-center gap-2">
                   <div className="flex items-center gap-1 rounded-full border border-rule bg-raised p-1">
                     <button
                       type="button"
