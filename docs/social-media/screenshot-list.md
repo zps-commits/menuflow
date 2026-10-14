@@ -1,5 +1,28 @@
 # Screenshots
 
+## Composed images, ready to post
+
+`composed/` holds four finished 1080 x 1350 (4:5) images, built by
+`npm run social` from `scripts/compose-social.mjs`:
+
+| File | What it is |
+|---|---|
+| `1-cover.png` | Project cover, with the real menu bleeding off the bottom |
+| `2-desktop-and-mobile.png` | The menu at both widths |
+| `3-features.png` | Both option groups, "choose one" and "up to 2", with a dish card |
+| `4-the-rule.png` | Cart line identity, beside the real `makeLineId` source |
+
+Every screenshot inside them is placed, never regenerated. No text, number,
+button or feature is altered anywhere.
+
+## Captured from the deployment
+
+`assets/` is captured by `npm run shots` against the live site, so what is
+shown is what people see. It includes element captures — a single dish card,
+both option groups — because cropping a viewport screenshot into a layout
+risks cutting through a label, and anything below the fold is not in the
+image at all.
+
 ## Already captured
 
 In `../screenshots/`, captured from the running application. Nothing here is
