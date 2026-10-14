@@ -4,6 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import DishImage from '@/components/ui/DishImage';
+import ProductCustomizer from '@/components/product/ProductCustomizer';
 import { getCatalog, getCategory, getProduct } from '@/domain/catalog';
 import { formatMoney } from '@/lib/money';
 
@@ -57,6 +58,8 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
             <p className="mt-6 text-2xl font-medium">
               {formatMoney(product.price, restaurant.locale, restaurant.currency)}
             </p>
+
+            <ProductCustomizer product={product} restaurant={restaurant} />
 
             {!product.available && (
               <p className="mt-6 rounded-lg border border-rule bg-surface p-4 text-[0.9375rem] text-muted">

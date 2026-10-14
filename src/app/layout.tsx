@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Cormorant_Garamond, Karla } from 'next/font/google';
 import './globals.css';
 import { catalog } from '@/data/catalog';
+import { CartProvider } from '@/components/cart/CartProvider';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -20,7 +21,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${karla.variable}`}>
-      <body className="min-h-dvh">{children}</body>
+      <body className="min-h-dvh">
+        <CartProvider>{children}</CartProvider>
+      </body>
     </html>
   );
 }

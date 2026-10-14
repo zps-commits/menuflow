@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CartLink from '@/components/layout/CartLink';
 import type { Restaurant } from '@/types/menu';
 
 export default function SiteHeader({ restaurant }: { restaurant: Restaurant }) {
@@ -8,7 +9,10 @@ export default function SiteHeader({ restaurant }: { restaurant: Restaurant }) {
         <Link href="/" className="tap pressable -ml-1 flex items-center rounded-lg px-1">
           <span className="display-s">{restaurant.name}</span>
         </Link>
-        <span className="label hidden text-subtle sm:block">{restaurant.tagline}</span>
+        <div className="flex items-center gap-4">
+          <span className="label hidden text-subtle sm:block">{restaurant.tagline}</span>
+          <CartLink />
+        </div>
       </div>
     </header>
   );
