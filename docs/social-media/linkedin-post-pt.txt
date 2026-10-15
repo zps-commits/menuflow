@@ -14,17 +14,15 @@ O cliente monta o pedido no próprio celular, com o preço real e as opções re
 
 Sem comissão por pedido, sem gateway de pagamento, sem backend.
 
-DECISÕES TÉCNICAS QUE IMPORTARAM
+COMO FOI FEITO
 
 Dinheiro é centavo inteiro do começo ao fim. Nenhum float segura preço.
 
-A linha do carrinho é identificada pelo produto mais as opções escolhidas, ordenadas. Bife mal passado e bife bem passado são duas linhas, não quantidade dois. Ordenar os ids faz as mesmas escolhas em ordem diferente caírem na mesma linha.
+A linha do carrinho é identificada pelo produto mais as opções escolhidas, ordenadas. Bife mal passado e bife bem passado são duas linhas, não quantidade dois.
 
-O carrinho é reprecificado contra o catálogo atual a cada leitura, nunca confiado no que estava salvo. Se o prato mudou de preço ou acabou enquanto a aba ficou aberta de um dia para o outro, o carrinho reflete o cardápio de hoje e informa o que precisou tirar.
+O carrinho é reprecificado contra o catálogo atual a cada leitura, nunca confiado no que estava salvo.
 
-localStorage é tratado como entrada hostil: validado campo a campo, e o que falha vira carrinho vazio em vez de exceção.
-
-Regra de negócio nenhuma mora em componente. Preço, identidade de linha, busca e montagem da mensagem são funções puras, testadas sem renderizar nada.
+Regra de negócio nenhuma mora em componente: preço, identidade de linha, busca e montagem da mensagem são funções puras.
 
 O BUG QUE MAIS ENSINOU
 
