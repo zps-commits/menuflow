@@ -20,7 +20,7 @@ export default function CartLink() {
     >
       <ShoppingBag aria-hidden="true" className="size-5" />
       {hydrated && count > 0 && (
-        <span className="absolute right-0 top-1 grid min-w-5 place-items-center rounded-full bg-ember px-1.5 text-[0.6875rem] font-semibold text-ember-ink">
+        <span className="absolute right-0 top-1 grid min-w-5 place-items-center rounded-full bg-on-dark px-1.5 text-[0.6875rem] font-semibold text-ember-deep">
           {count}
         </span>
       )}

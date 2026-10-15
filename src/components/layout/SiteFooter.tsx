@@ -2,7 +2,7 @@ import type { Restaurant } from '@/types/menu';
 
 export default function SiteFooter({ restaurant }: { restaurant: Restaurant }) {
   return (
-    <footer className="border-t border-rule bg-surface">
+    <footer className="border-t-2 border-ember bg-surface">
       <div className="shell grid gap-10 py-14 md:grid-cols-2">
         <div>
           <h2 className="display-m">{restaurant.name}</h2>

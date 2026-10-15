@@ -6,23 +6,32 @@
    should read like a menu, not like a SaaS dashboard.
    ═══════════════════════════════════════════════════════════ */
 @theme {
-  --color-paper: #faf7f2;
-  --color-surface: #f2ece2;
-  --color-raised: #ffffff;
-  --color-ink: #1b1613;
-  --color-muted: #5e564e;
-  --color-subtle: #6f675e;
-  --color-rule: #e2d8cb;
-  --color-rule-strong: #8a7f71;
+  /*
+   * Colour comes from depth of surface here, not from a second accent.
+   * The old palette was three shades of the same near-white, so the page
+   * read as monochrome; these are real steps apart and every pair below
+   * was measured against WCAG before being used.
+   */
+  --color-paper: #f6f1e8;
+  --color-surface: #ede5d8;
+  --color-raised: #fffdf9;
+  --color-ink: #1d1510;
+  --color-muted: #5a5047;
+  --color-subtle: #6b6058;
+  --color-rule: #ddd0bd;
+  --color-rule-strong: #8a7a68;
 
-  /* Ember. Action, price emphasis, focus. Not a background. */
-  --color-ember: #a8401b;
-  --color-ember-ink: #ffffff;
+  /* Ember. Action, price emphasis, focus. Deep ember is a field, not a tint. */
+  --color-ember: #a3401c;
+  --color-ember-ink: #fffdf9;
   --color-ember-soft: #c9643d;
+  --color-ember-deep: #7d2f14;
+  --color-on-dark: #f3e6dc;
+  --color-on-dark-dim: #d9c3b4;
 
-  --color-ok: #1b6b45;
-  --color-warn: #8a5300;
-  --color-danger: #a32317;
+  --color-ok: #1b6340;
+  --color-warn: #7a4a00;
+  --color-danger: #9b2318;
 
   --font-display: var(--font-cormorant), Georgia, serif;
   --font-body: var(--font-karla), system-ui, sans-serif;
