@@ -1,0 +1,54 @@
+Projeto 1 do meu desafio de 60 soluções em 30 dias: MenuFlow, um cardápio digital que monta o pedido e entrega pronto no WhatsApp.
+
+O PROBLEMA
+
+Restaurante de bairro que quer vender online costuma escolher entre duas opções ruins.
+
+Marketplace de entrega cobra comissão por pedido. Em margem de comida, essa comissão é com frequência a diferença entre um prato dar lucro e não dar. E o restaurante não fica dono da relação com o cliente que está pagando para ter.
+
+PDF do cardápio com número de telefone não custa nada e gera pedido do tipo "o de sempre, sem cebola, e uma daquelas massas". Reconstruir isso leva várias mensagens, no meio do serviço, e é de onde sai o pedido errado.
+
+A SOLUÇÃO
+
+O cliente monta o pedido no próprio celular, com o preço real e as opções reais, e o restaurante recebe tudo escrito por extenso no canal que já usa: cada item, cada opção, cada observação, preço unitário e total.
+
+Sem comissão por pedido, sem gateway de pagamento, sem backend.
+
+DECISÕES TÉCNICAS QUE IMPORTARAM
+
+Dinheiro é centavo inteiro do começo ao fim. Nenhum float segura preço.
+
+A linha do carrinho é identificada pelo produto mais as opções escolhidas, ordenadas. Bife mal passado e bife bem passado são duas linhas, não quantidade dois. Ordenar os ids faz as mesmas escolhas em ordem diferente caírem na mesma linha.
+
+O carrinho é reprecificado contra o catálogo atual a cada leitura, nunca confiado no que estava salvo. Se o prato mudou de preço ou acabou enquanto a aba ficou aberta de um dia para o outro, o carrinho reflete o cardápio de hoje e informa o que precisou tirar.
+
+localStorage é tratado como entrada hostil: validado campo a campo, e o que falha vira carrinho vazio em vez de exceção.
+
+Regra de negócio nenhuma mora em componente. Preço, identidade de linha, busca e montagem da mensagem são funções puras, testadas sem renderizar nada.
+
+O BUG QUE MAIS ENSINOU
+
+Um grupo de opções obrigatório com máximo de dois abria vazio. TypeScript feliz, teste de unidade verde, e o prato simplesmente se recusava a entrar no carrinho, sem dizer por quê. Só clicando no navegador apareceu.
+
+É o melhor argumento que esse projeto me deu para testar a interface, e não só as funções debaixo dela.
+
+O QUE ELE NÃO FAZ, E DIZ QUE NÃO FAZ
+
+Abrir o WhatsApp não é pedido confirmado. O pedido está confirmado quando o restaurante responde, e a interface fala isso. Nada simula pagamento. Nenhuma taxa de entrega é inventada: o cardápio carrega a observação de que a taxa depende do endereço e é combinada na conversa, e essa observação viaja junto com a mensagem.
+
+VERIFICADO
+
+82 testes passando, TypeScript strict e ESLint limpos, build limpo, zero violações axe-core (WCAG 2.1 A + AA): em 360, 390, 430, 768 e 1440px no ambiente local, e contra o deploy no ar.
+
+Não verificado: aparelho físico, Safari e Firefox.
+
+O restaurante "Mesa Nove" é fictício e o número de WhatsApp é placeholder. Não há usuário, cliente nem faturamento, então não tem número desse tipo aqui.
+
+Stack: Next.js App Router, React 19, TypeScript, Tailwind CSS v4, Vitest, Testing Library.
+
+Demo: https://menuflow-six-gamma.vercel.app
+Código: https://github.com/zps-commits/menuflow
+
+Se você tem restaurante e hoje recebe pedido por WhatsApp no gogó, dá para adaptar isso ao seu cardápio. É só chamar.
+
+#desenvolvimentoweb #nextjs #typescript #acessibilidade
