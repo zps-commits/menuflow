@@ -1,103 +1,92 @@
 # Carousel — five slides
 
-Format 1080 × 1350 (4:5). Follows the structure the brief sets: presentation,
-problem, solution with real screenshots, technology, result.
+The finished slides are in `composed/`, rendered by `npm run social` at
+1080 × 1350 (4:5). To rebuild them as an editable Canva file, see
+`canva-spec.md`.
 
-Every screenshot named below exists in `../screenshots/`. Do not compose a
-screen that is not in that folder.
-
----
-
-## Slide 1 — presentation
-
-**Name**
-MenuFlow
-
-**Category**
-Digital menu · order by WhatsApp
-
-**Value line**
-The customer builds the order. The restaurant receives it finished.
-
-**Visual**
-Type only, on the menu's own background colour.
+The structure follows the brief: presentation, problem, solution with real
+screenshots, technology, result.
 
 ---
 
-## Slide 2 — the problem
+## Slide 1 — Presentation
 
-**Headline**
-Two bad options
-
-**Body**
-A delivery marketplace takes a commission on every order.
-
-A PDF and a phone number produces "the usual, no onion" — rebuilt over
-several messages, during service.
-
-**Visual**
-Two stacked blocks, one per option. No illustration.
+**Name** MenuFlow
+**Category** Digital menu · order by WhatsApp
+**Value line** The customer builds the order. The restaurant receives it finished.
+**Link** menuflow-six-gamma.vercel.app
+**Visual** `assets/menu-mobile.png`, whole.
 
 ---
 
-## Slide 3 — the solution
+## Slide 2 — Problem
 
-**Headline**
-The real menu, on their phone
+**Headline** Two bad options
 
-**Body**
-Categories, search by ingredient, sold-out dishes marked and unorderable,
-options with their own minimum and maximum, prices updating as they choose.
+**A delivery marketplace** takes a commission on every order. On food
+margins that is often the difference between a dish being profitable and
+not.
 
-**Visual**
-`../screenshots/menu-mobile.jpg` and `../screenshots/product-desktop.jpg`
-side by side.
+**A PDF and a phone number** produces "the usual, no onion, and one of
+those pastas", rebuilt over several messages, during service.
+
+**Close** MenuFlow is the middle: the real menu, assembled by the customer,
+arriving written out in full on the channel the restaurant already uses.
+
+**Visual** None. Type only.
 
 ---
 
-## Slide 4 — technology
+## Slide 3 — Solution
 
-**Headline**
-How it is built
+**Headline** Options that carry their own rules
 
-**Body**
-Next.js App Router · React 19 · TypeScript strict · Tailwind CSS v4
+**Body** "Choose one" and "up to two" are the same structure with different
+numbers. Sold-out dishes stay visible, marked, and cannot be ordered.
 
-Money as integer cents. Business rules as pure functions, outside the
-components. The cart re-priced against the current menu on every read, never
-trusted from storage.
+**Visuals** `assets/product-options.png` and `assets/card-dish.png`, both
+whole, both captured from the deployment.
 
-**The technical challenge actually faced:** a required option group with a
-maximum of two opened empty. Types and unit tests were both green; the dish
+---
+
+## Slide 4 — Technology
+
+**Headline** Next.js · React 19 · TypeScript · Tailwind v4
+
+**Body** Money as integer cents. No business rule lives in a component:
+pricing, line identity, search and message building are pure functions,
+tested without rendering anything.
+
+**The technical challenge actually faced** A required option group with a
+maximum of two opened empty. Types and 82 unit tests were green; the dish
 silently refused to be added. Only a browser found it.
 
-**Visual**
-Type only.
+**Code** The real line-identity expression from `src/domain/cart.ts`.
 
 ---
 
-## Slide 5 — result
+## Slide 5 — Result
 
-**Headline**
-Built, verified, live
+**Headline** Built, verified, and live
 
-**Body**
-82 tests passing. Zero axe-core violations: five screen widths locally, two
-against the live deployment.
+| Tests across 7 files | 82 passing |
+| TypeScript strict, lint, build | clean |
+| axe-core, WCAG 2.1 A + AA | 0 violations |
+| Widths checked | 1440 · 768 · 430 · 390 · 360 |
 
-Demo: menuflow-six-gamma.vercel.app
-Code: github.com/zps-commits/menuflow
+**Honesty line** "Mesa Nove" is fictional and the WhatsApp number is a
+placeholder. No users, no clients, no revenue — the figures above are
+verification results.
 
-**Visual**
-`../screenshots/cart-desktop.jpg`, showing the finished order.
+**Links** menuflow-six-gamma.vercel.app · github.com/zps-commits/menuflow
 
 ---
 
-## Rules for whoever builds this
+## Rules
 
 - Only verified information. No invented metric and no feature that is not
   built.
-- Short text. Do not crop a screenshot in a way that changes what it shows.
+- Short text. Place every screenshot whole; do not crop one so a label is
+  cut, and do not scale one past the frame so it bleeds.
 - No excessive gradients, no glow, no futurism, no generic template look.
-- Keep the colours of the application rather than introducing a palette.
-- Leave the Canva file editable and organised for review.
+- One accent. Slide 4 is the inverse of the others, not a second palette.
